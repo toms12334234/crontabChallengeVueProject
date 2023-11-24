@@ -1,20 +1,31 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+  import HelloWorld from './components/HelloWorld.vue'
+  import TheWelcome from './components/TheWelcome.vue'
+  import { defineComponent, ref, computed, onMounted } from 'vue';
+
+  let test = ref("hello")
+
+  onMounted(() => {
+    doSomething(test.value)
+  })
+
 </script>
 
 <template>
+
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <HelloWorld msg="Let's cron!" />
     </div>
   </header>
 
   <main>
-    <!-- <TheWelcome /> -->
+    <h1 :value="HelloWorld.cronExpressionInput"></h1>
+    <TheWelcome />
   </main>
+
 </template>
 
 <style scoped>
@@ -45,3 +56,17 @@ header {
   }
 }
 </style>
+
+
+<script lang="ts">
+
+  export default defineComponent({
+    name: 'TestComp',
+  })
+
+  function doSomething (param : any) {
+    console.log(param);
+  }
+  
+  
+</script>

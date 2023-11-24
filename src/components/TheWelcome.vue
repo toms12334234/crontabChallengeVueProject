@@ -8,15 +8,15 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
+  <h1>Unit test results</h1>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
-
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
+    <template #heading>{{ test1result }}</template>
+    Input: * * * * * *<br />
+    Expected: Every minute<br />
+    Actual: {{ test1actual }}
   </WelcomeItem>
 
   <WelcomeItem>
@@ -86,3 +86,14 @@ import SupportIcon from './icons/IconSupport.vue'
     <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
   </WelcomeItem>
 </template>
+
+<script lang="ts">
+export default {
+  data() {
+    return {
+      test1result: "Success",
+      test1actual: "test1actual",
+    };
+  },
+};
+</script>
